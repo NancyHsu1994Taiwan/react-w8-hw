@@ -38,7 +38,7 @@ export function Login() {
   };
   return (
     <>
-      <div className="container">
+      <div className="container my-5" style={{ minHeight: "50vh" }}>
         <h1 className="text-center">請先登入</h1>
 
         <form onSubmit={handleSubmit(handleLogin)}>
