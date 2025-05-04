@@ -4,12 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const messageSlice = createSlice({
   name: "message",
-  // {
-  //   id: new Date().getTime(),
-  //   type: "success",
-  //   title: "update",
-  //   text: "更新成功",
-  // },
+
   initialState: [],
   reducers: {
     createMessage(state, action) {
@@ -44,7 +39,6 @@ export const messageSlice = createSlice({
 export const createAsyncMessage = createAsyncThunk(
   "message/createAsyncMessage",
   async (payload, { dispatch, requestId }) => {
-    // 參數：自定義名稱、async function
     dispatch(
       messageSlice.actions.createMessage({
         ...payload,

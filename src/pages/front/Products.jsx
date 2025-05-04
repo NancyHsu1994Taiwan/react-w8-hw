@@ -4,8 +4,10 @@ import { useNavigate, Outlet } from "react-router-dom";
 export function Products() {
   const { VITE_BASE_URL: BASE_URL, VITE_API_BASE: API_BASE } = import.meta.env;
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("");
   const [pagination, setPagination] = useState({});
   const getProducts = async (page = 1, category) => {
+    setCategory(category);
     let url = `${BASE_URL}/api/${API_BASE}/products?page=${page}`;
     if (category) {
       url = `${BASE_URL}/api/${API_BASE}/products?page=${page}&category=${category}`;
@@ -18,7 +20,7 @@ export function Products() {
 
       setPagination(res.data.pagination);
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
   const addToCart = async (id) => {
@@ -79,35 +81,49 @@ export function Products() {
           >
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className={
+                category === "潔面" ? "btn btn-dark" : "btn btn-outline-dark"
+              }
               onClick={() => getProducts(1, "潔面")}
             >
               潔面
             </button>
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className={
+                category === "臉部保養"
+                  ? "btn btn-dark"
+                  : "btn btn-outline-dark"
+              }
               onClick={() => getProducts(1, "臉部保養")}
             >
               臉部保養
             </button>
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className={
+                category === "身體保養"
+                  ? "btn btn-dark"
+                  : "btn btn-outline-dark"
+              }
               onClick={() => getProducts(1, "身體保養")}
             >
               身體保養
             </button>
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className={
+                category === "化妝" ? "btn btn-dark" : "btn btn-outline-dark"
+              }
               onClick={() => getProducts(1, "化妝")}
             >
               化妝
             </button>
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className={
+                category === "" ? "btn btn-dark" : "btn btn-outline-dark"
+              }
               onClick={() => getProducts(1, "")}
             >
               全部
@@ -119,7 +135,7 @@ export function Products() {
           {products.map((item) => {
             return (
               <>
-                <div className="col-3">
+                <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
                   <div className="card border-0 mb-4 position-relative position-relative">
                     <img
                       src={item.imageUrl}
@@ -189,7 +205,7 @@ export function Products() {
                 (_, index) => {
                   return (
                     <>
-                      <li className="page-item">
+                      <li className="page-item" key={index}>
                         <a
                           className="page-link"
                           onClick={() => getProducts(index + 1)}
@@ -220,4 +236,3 @@ export function Products() {
     </>
   );
 }
-// export default Products;

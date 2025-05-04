@@ -23,7 +23,7 @@ export function SingleProduct() {
 
       setProduct(res.data.product);
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
   const getAllProducts = async (page = 1) => {
@@ -34,7 +34,7 @@ export function SingleProduct() {
 
       setAllProducts(res.data.products);
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
 

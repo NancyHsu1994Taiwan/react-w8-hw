@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import { createAsyncMessage } from "../../slice/messageSlice";
 
 import PropTypes from "prop-types";
-// import { useDispatch } from "react-redux";
-// import createMessage from "../slice/messageSlice";
 function ProductModal({
   getProductList,
   closeModal,
@@ -20,11 +18,9 @@ function ProductModal({
   const dispatch = useDispatch();
 
   const modalRef = useRef(null);
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     myModal.current = new Modal(modalRef.current);
-    // modalRef.current = new Modal("#productModal");
   }, []);
   const handleModalInputChange = (e) => {
     const { name, value, type, checked } = e.target;

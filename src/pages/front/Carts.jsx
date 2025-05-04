@@ -10,11 +10,11 @@ export function Carts() {
   const getCarts = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/api/${API_BASE}/cart`);
-      console.log(res);
+
       setCarts(res.data.data.carts);
       setFinalTotal(res.data.data.final_total);
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
 
@@ -46,7 +46,7 @@ export function Carts() {
   const deleteCart = async (id) => {
     try {
       const res = await axios.delete(`${BASE_URL}/api/${API_BASE}/cart/${id}`);
-      console.log(res);
+
       alert(res.data.message);
       getCarts();
     } catch (error) {
@@ -57,10 +57,10 @@ export function Carts() {
   const deleteAllCarts = async () => {
     try {
       const res = await axios.delete(`${BASE_URL}/api/${API_BASE}/carts`);
-      console.log(res);
+      alert(res.message);
       getCarts();
     } catch (error) {
-      console.dir(error);
+      alert(error.message);
     }
   };
   const {
@@ -95,7 +95,7 @@ export function Carts() {
       });
 
       alert(res.data.message);
-      // getCarts();
+
       navigate("/checkoutComplete");
     } catch (error) {
       alert(error.message);

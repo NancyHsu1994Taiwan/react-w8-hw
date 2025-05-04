@@ -149,14 +149,7 @@ export function Home() {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-            {/* <img
-              src="https://plus.unsplash.com/premium_photo-1677283511146-52fa442feb2f?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              classNamw="img-fluid"
-              style={{ width: "500px" }}
-            /> */}
-          </div>
+          ></div>
           <div className="col-md-6 m-auto text-center">
             <h4 className="mt-4">溫柔有效的每日保養儀式</h4>
             <p className="text-muted">無酒精・無人工香料，無矽靈</p>
@@ -175,13 +168,7 @@ export function Home() {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-            {/* <img
-              src="https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              className="img-fluid"
-            /> */}
-          </div>
+          ></div>
           <div className="col-md-4 m-auto text-center">
             <h4 className="mt-4">肌膚會記得，這份被溫柔對待的感覺</h4>
             <p className="text-muted">自然原萃，肌膚新生</p>
@@ -216,5 +203,3 @@ export function Home() {
     </>
   );
 }
-
-// export default Home;

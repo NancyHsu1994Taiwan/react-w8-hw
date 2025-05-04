@@ -14,7 +14,6 @@ function Navbar() {
   }, []);
 
   const toggleNavbar = () => {
-    console.log(1);
     if (collapseInstance.current) {
       collapseInstance.current.toggle();
     }

@@ -6,8 +6,6 @@ export function AdminLayout() {
     <>
       <AdminNavbar />
       <div className="container">
-        {/* <MessageToast /> */}
-
         <Outlet />
       </div>
     </>

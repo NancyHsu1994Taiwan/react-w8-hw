@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "bootstrap";
 import Pagination from "../../components/admin/Pagination";
@@ -24,7 +24,7 @@ export function Orders() {
       const res = await axios.get(
         `${BASE_URL}/api/${API_BASE}/admin/orders?page=${page}`
       );
-      console.log(res);
+
       setOrders(res.data.orders);
       const page_info = res.data.pagination;
       setPageInfo(page_info);
@@ -49,25 +49,10 @@ export function Orders() {
     checkAuth();
     getOrders();
   }, []);
-  //  --- modal相關 ---
-  // const orderModal = useRef(null);
-  // // const [currentOrder, setCurrentOrder] = useState({});
-  // let singleOrderProducts;
-  // const openModal = (id) => {
 
-  //   const singleOrder = orders.filter((item) => {
-  //     return item.id === id;
-  //   });
-
-  //   singleOrderProducts = singleOrder[0];
-  //   // setCurrentOrder(singleOrder[0]);
-  //   // console.log("currentOrder", currentOrder);
-  //   const modal = new Modal(orderModal.current);
-  //   modal.show();
-  // };
   return (
     <>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">成立時間</th>
@@ -86,7 +71,7 @@ export function Orders() {
           {orders.map((item) => {
             return (
               <>
-                <tr>
+                <tr key={item.id}>
                   <th scope="row">
                     {new Date(item.create_at * 1000).toLocaleString()}
                   </th>
@@ -97,15 +82,7 @@ export function Orders() {
                   <td>{item.user.name}</td>
                   <td>{item.user.tel}</td>
                   <td>{item.user.address}</td>
-                  {/* <td>
-                    <button
-                      type="button"
-                      className="btn btn-dark"
-                      onClick={() => openModal(item.id)}
-                    >
-                      查看詳情
-                    </button>
-                  </td> */}
+
                   <td>
                     <button
                       type="button"
@@ -123,38 +100,8 @@ export function Orders() {
           })}
         </tbody>
       </table>
-      {/* pafination */}
+
       <Pagination pageInfo={pageInfo} getProducts={getOrders} />
-      {/* modal */}
-      {/* <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-        ref={orderModal}
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              
-              
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

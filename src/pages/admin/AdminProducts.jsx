@@ -69,9 +69,9 @@ export function AdminProducts() {
       setStatus("edit");
       setProductId(product.id);
     }
-    // modalInstance.show();
+
     myModal.current.show();
-    // modalRef.current.show();
+
     setTemplateProduct({
       title: product.title || "",
       category: product.category || "",

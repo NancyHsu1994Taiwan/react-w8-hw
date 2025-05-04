@@ -10,7 +10,7 @@ import {
 import { AdminLayout, AdminProducts, Orders } from "./pages/admin";
 import App from "./App";
 
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 const routes = [
   {
     path: "/",
@@ -62,5 +62,5 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 export default router;
